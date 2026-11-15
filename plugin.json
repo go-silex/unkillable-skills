@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "unkillable",
+  "version": "0.1.0",
+  "description": "Daily rituals for your second brain: start and end of session, inbox, decisions, memory and writing. By Unkillable Companies.",
+  "author": { "name": "Unkillable Companies", "url": "https://github.com/go-silex" },
+  "homepage": "https://github.com/go-silex/unkillable-skills",
+  "repository": "https://github.com/go-silex/unkillable-skills",
+  "keywords": ["second-brain", "obsidian", "productivity", "rituals", "memory"],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/brain-setup/SKILL.md",
+      "interface": {
+        "displayName": "Unkillable",
+        "shortDescription": "Daily rituals for your second brain",
+        "longDescription": "Start and end your sessions, empty your inbox, log decisions, keep the agent's memory up to date and write in your own voice. Works on any notes folder; best with the second brain built by Unkillable Companies.",
+        "developerName": "Unkillable Companies",
+        "category": "Productivity",
+        "websiteURL": "https://github.com/go-silex/unkillable-skills",
+        "defaultPrompt": ["Brief me to start the session", "Process my inbox", "Close the session and log it"]
+      }
+    }
+  }
+}
