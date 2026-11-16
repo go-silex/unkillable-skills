@@ -22,9 +22,12 @@ for label, path in list(manifests.items()) + [
         errors.append(f"{label}: {e}")
 
 names = {data[m].get("name") for m in manifests if m in data}
-versions = {data[m].get("version") for m in manifests if m in data}
+# Claude Code: no version on purpose, so every pushed commit is an update (the commit SHA is the version).
+versions = {data[m].get("version") for m in ("plugin.json", ".codex-plugin/plugin.json") if m in data}
 cm = data.get(".claude-plugin/marketplace.json", {}).get("plugins", [{}])[0]
-names.add(cm.get("name")); versions.add(cm.get("version"))
+names.add(cm.get("name"))
+for label, d in ((".claude-plugin/plugin.json", data.get(".claude-plugin/plugin.json", {})), (".claude-plugin/marketplace.json", cm)):
+    if "version" in d: errors.append(f"{label}: remove 'version' so Claude Code tracks commits")
 names.add(data.get(".agents/plugins/marketplace.json", {}).get("plugins", [{}])[0].get("name"))
 if len(names) != 1: errors.append(f"plugin names differ: {names}")
 if len(versions) != 1: errors.append(f"versions differ: {versions}")

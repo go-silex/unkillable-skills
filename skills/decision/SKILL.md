@@ -1,53 +1,62 @@
 ---
 name: decision
-description: Logs a decision in the second brain with its context, the options on the table, the choice, the reason and what would make it worth revisiting. Use when the user says "decision", "on a décidé", "log cette décision", "consigne ce choix", "we decided", "record this decision".
+description: Logs an important decision in the second brain, one note per subject (for example "Price of offer X"), with the current decision on top and a dated history below, so a decision that changes several times stays in one place. Adds one line to the decisions log and the memory. Use when the user says "decision", "on a décidé", "log cette décision", "consigne ce choix", "we decided", "record this decision".
 ---
 
 # Decision
 
-Keep the memory of choices, so nobody has to rebuild the reasoning later. Answer in the user's language.
+Keep the memory of important choices, simply. Talk in the user's language; content in the language `AGENTS.md` sets.
 
-## Find the folders
+## Find your way
 
-`## Brain map` in the root `AGENTS.md` (or `CLAUDE.md`). If there is none: Decisions `00_COCKPIT/Decisions/` (create it if missing), Memory `_System/MEMORY.md`, Context `_System/Contexte_Global.md` or `_System/Context.md`. If the brain has a decision template (for example `_System/Templates/Decision.md`), follow it.
+Read the root `AGENTS.md` first; it wins over this skill on everything it states.
 
-## Steps
+- Paths from its `## Brain map`: Decisions, Memory. For a role missing from the map only: `00_COCKPIT/Decisions/`, `_System/MEMORY.md`.
+- The Decisions folder's `README.md` or `AGENTS.md`, and a `Decision.md` in the Templates folder, win over the format below.
 
-1. The decision is what the user wrote after the command, or what was decided in this conversation. If unclear, ask "Which decision do you want to log?" and wait.
-2. Ask only for what is missing, in one message: the other options considered, why this one, what would make you revisit it.
-3. Write `<Decisions>/YYYY-MM-DD-<short-title>.md`:
+## Is it a decision?
+
+Log it only if it changes direction, money, people, a commitment to someone outside, or would be costly to undo. "Send the email to Michel" is a task: say so and offer `capture`. Something only said or still open is not decided: write "said on <date>" where it belongs.
+
+## One note per subject
+
+A decision is filed under its **subject**, not its date: `Price_Offer_X.md`, `Felix_Role.md`, `Weekly_Review_Day.md`. When the subject comes back, the same note is updated:
+
+- `## Current` is rewritten: what holds today, and why in one or two lines.
+- `## History` gets one dated line on top. History is never rewritten.
+
+So one note shows the decision in force and every change before it. A new note only for a new subject.
 
 ```markdown
 ---
 type: decision
-created: YYYY-MM-DD
 status: active
+area: <a company, a stream, a project>
+updated: YYYY-MM-DD
 ---
 
-# Decision: <title>
+# <Subject>
 
-## Context
-<the situation that forced the choice>
+## Current
+<what is decided>. Why: <one or two lines>. (<source, date>)
 
-## Options considered
-- <option A>: <for / against>
-- <option B>: <for / against>
-
-## Choice
-<what was decided>
-
-## Why
-<the reasoning and the assumptions>
-
-## Revisit if
-<what would make us reconsider>
+## History
+- YYYY-MM-DD · <what was decided> · <why, source>
 ```
 
-4. Link it to related notes (project, client, person) with `[[links]]`.
-5. Add one line to `## Recent decisions` in the Memory: `- YYYY-MM-DD: <decision> ([[note]])`.
-6. Confirm in one line.
+`status: replaced` when the subject itself is closed or merged into another note (link it).
+
+## Steps
+
+1. Find the decision: the user's words after the command, or what was decided in this conversation. Unclear: ask "Which decision do you want to log?".
+2. Find the subject: search the Decisions folder and `Decisions_Log.md` for an existing note on it (same subject, other wording).
+3. Missing reason: ask only "Why?", once. No answer: write "not stated".
+4. Update the existing note (rewrite `Current`, add a `History` line, set `updated`), or create it.
+5. Add a line at the top of the current year in `<Decisions>/Decisions_Log.md` (create it with `# Decisions log` and a `## YYYY` heading if missing): `- YYYY-MM-DD · <area> · <decision> ([[note]])`. The log gets a line at every change: it is the chronological view.
+6. Add a line to `## Recent decisions` in the Memory (keep the 10 most recent).
+7. Link related notes (project, person) with `[[links]]`. Confirm in one line.
 
 ## Rules
 
-- Never invent an option or a reason the user did not give. Leave a section with "not stated" rather than filling it.
-- A decision that replaces an older one: set the old note's `status: superseded` and link both.
+- Never invent a reason. A decision the user did not confirm is never logged.
+- File names follow the brain's convention, without a date: the subject is the name.

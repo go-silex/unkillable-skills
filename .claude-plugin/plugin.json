@@ -1,9 +1,17 @@
 {
   "name": "unkillable",
-  "version": "0.1.0",
   "description": "Daily rituals for your second brain: start and end of session, inbox, decisions, memory and writing. By Unkillable Companies.",
-  "author": { "name": "Unkillable Companies", "url": "https://github.com/go-silex" },
+  "author": {
+    "name": "Unkillable Companies",
+    "url": "https://github.com/go-silex"
+  },
   "homepage": "https://github.com/go-silex/unkillable-skills",
   "repository": "https://github.com/go-silex/unkillable-skills",
-  "keywords": ["second-brain", "obsidian", "productivity", "rituals", "memory"]
+  "keywords": [
+    "second-brain",
+    "obsidian",
+    "productivity",
+    "rituals",
+    "memory"
+  ]
 }

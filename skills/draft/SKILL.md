@@ -1,44 +1,56 @@
 ---
 name: draft
-description: Drafts an email, a message or a post in the user's own voice, using what the second brain knows about the person, the relationship and the business. Never sends anything. Use when the user says "draft", "rédige", "écris un mail à", "réponds à", "prépare un message pour", "write an email to", "reply to".
+description: Drafts an email, a message or a post in the user's own voice, using the brain's voice guide and what it knows about the person, the relationship and the business. Builds the voice guide from the user's own texts if none exists. Never sends anything. Use when the user says "draft", "rédige", "écris un mail à", "réponds à", "prépare un message pour", "write an email to", "reply to".
 ---
 
 # Draft
 
-Write a message that fits this relationship and this moment, in the user's voice. Answer in the language of the message's recipient, or the user's language if unknown.
+Write a message that fits this relationship and this moment, in the user's voice. Write in the recipient's language, or the user's if unknown.
 
-## Find the folders
+## Find your way
 
-`## Brain map` in the root `AGENTS.md` (or `CLAUDE.md`). Context `_System/Contexte_Global.md` or `_System/Context.md`; People `People/`; Voice `_System/Voice.md` (optional).
+Read the root `AGENTS.md` first; it wins over this skill on everything it states.
+
+- Paths from its `## Brain map`: Voice, People, Context. For a role missing from the map only: Voice `_System/Voice.md`.
+- Sources of truth: if a mail or chat tool is connected, the past exchanges with this person live there.
+
+## Where the voice comes from
+
+In this order, first found wins, and say which one you used:
+
+1. The **Voice** file of the Brain map (a voice guide: tone, words used, words never used, signature, examples).
+2. A voice section in `AGENTS.md` or in the Context file.
+3. The user's own sent messages to this person, through the mail or chat connector (read 3 to 5).
+4. Texts the user wrote in this conversation or in the brain (journal, dictations).
+
+If you had to fall back to 3 or 4, offer at the end: "Shall I build your voice guide from these examples?" On a yes, write the Voice file: tone in 3 lines, how they open and close, words they use, words they never use, length, 2 short real examples. Add the Voice row to the Brain map if missing.
 
 ## 1. Get the brief
 
-From the user's message: who it is for, what it is about, the goal (inform, ask, close, decline, follow up). If the recipient or the goal is missing, ask both in one question and wait.
+Who it is for, what it is about, the goal (inform, ask, close, decline, follow up). If the recipient or the goal is missing, ask both in one question and wait.
 
 ## 2. Gather the material
 
-- The person's note and the latest notes that mention them (meetings, decisions, commitments). Read them, do not skim titles.
+- The person's note and the latest notes that mention them. Read them, do not skim titles.
+- The last exchange with them, if a connector gives access.
 - The business context, if the message touches the offer, prices or commitments.
-- The Voice file if it exists. If not, take the user's voice from messages they wrote in this conversation or in the brain.
-- If you find nothing about the person, say so and ask for the minimum: how they know each other, and the goal.
+- Nothing found about the person: say so and ask how they know each other.
 
 ## 3. Write
 
-- Email: subject line, then body. Message: body only. Post: hook line, body, ending.
+- Email: subject, then body. Message: body only. Post: hook line, body, ending.
 - Short. One idea per paragraph. A clear ask or next step at the end.
-- The tone of this relationship: formal or direct according to past exchanges.
-- Then pass it through the `humanize` rules: no stock transitions, no clichés, no em dashes, no bold on whole sentences, no list of exactly three by reflex.
-- If useful, one variant (shorter, or warmer). Not more.
+- The register of this relationship (formal or direct), from past exchanges.
+- Then apply the `de-ai-ify` rules: no stock transitions, no clichés, no em dashes, no bold on whole sentences, no list of three by reflex.
+- One variant at most (shorter, or warmer).
 
 ## 4. Hand over
 
-Show the draft in the chat. Then:
-
-- List the facts you used that the user should check (dates, numbers, names).
-- If the message makes a commitment or records a decision, offer to log it in the person's note or with `decision`.
-- If the user corrected your tone, offer to save the lesson in `_System/Voice.md` (create it on a yes).
+- Show the draft. List the facts the user should check (dates, numbers, names).
+- If it records a commitment or a decision, offer to log it (`person`, `decision`).
+- If the user corrects the tone, offer to add the lesson to the Voice file.
 
 ## Rules
 
-- **Never send.** Even if a mail or chat connector is available, only create a draft there after an explicit yes.
-- Never invent history, a promise, a price or a date absent from the brain or the conversation.
+- **Never send.** With a mail or chat connector, create a draft there only after an explicit yes.
+- Never invent history, a promise, a price or a date absent from the brain, the connected tools or the conversation.

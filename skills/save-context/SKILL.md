@@ -5,11 +5,13 @@ description: Turns the current conversation into a self-contained context docume
 
 # Save context
 
-Write a handover document that stands on its own. Answer and write in the user's language.
+Write a handover document that stands on its own. Talk in the user's language; content in the language `AGENTS.md` sets.
 
-## Where it goes
+## Find your way
 
-`## Brain map` in the root `AGENTS.md` (or `CLAUDE.md`), role Cockpit. If there is none: `00_COCKPIT/`. File: `<Cockpit>/Context/YYYY-MM-DD-<short-title>.md` (create `Context/` if needed).
+- Path: `## Brain map` of the root `AGENTS.md`, role Cockpit (default `00_COCKPIT/` only if the map has none). File: `<Cockpit>/Context/YYYY-MM-DD_Short_Title.md`, or the brain's naming convention. Create `Context/` if needed.
+- If the Templates folder holds `Context.md` or `Handover.md`, use it instead of the format below.
+- If the work belongs to a project or client folder that has its own `AGENTS.md`, ask whether the document should live there instead.
 
 ## 1. Compact the conversation
 
@@ -18,7 +20,7 @@ Keep what lasts, drop the chatter:
 - Goal: what we are trying to achieve, and for whom.
 - What was built or decided, and why.
 - Exact references: files as `[[wikilinks]]`, URLs, tools, commands.
-- Where secrets live (for example "API key in the password manager, item X"). **Never the values.**
+- Where secrets live ("API key in the password manager, item X"). **Never the values.**
 - Open questions, next steps, traps met on the way.
 - Preferences and conventions that matter for this topic.
 
@@ -30,7 +32,8 @@ Then check: what would someone starting from zero miss? Fill that gap.
 ---
 type: reference
 created: YYYY-MM-DD
-tags: [context]
+source: session YYYY-MM-DD
+related: []
 ---
 
 # <short, explicit title>
