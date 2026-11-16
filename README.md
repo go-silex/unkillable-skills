@@ -17,6 +17,7 @@ Daily rituals for your second brain, in every AI tool you use: Claude Code, Open
 | `inbox` | Empties the inbox: proposes where each note goes, files them after your yes. |
 | `weekly-review` | Weekly review of the business, then an optional hygiene pass on the brain. |
 | `decision` | Logs an important decision: one note, one line in the decisions log, one line in the memory. |
+| `challenge` | Stress-tests an idea or a decision against what your brain knows, in short rounds of questions, before you commit. |
 | `save-context` | Turns the current conversation into a handover note you can resume anywhere. |
 | `person` | Creates or updates a person's note; offers to update your CRM if it owns contacts. |
 | `draft` | Drafts an email, message or post in your voice, from what the brain knows. Never sends. |
@@ -92,7 +93,7 @@ Les rituels quotidiens de ton second cerveau, dans tous tes outils IA : Claude C
 - **Vérifier le cerveau** : `brain-check`. **Brancher un outil** : `connect`. **Remplir le cerveau** : `interview`.
 - **Début de session** : `welcome`. **Fin de session** : `done`.
 - **Capturer** une idée : `capture`. **Vider l'inbox** : `inbox`.
-- **Revue de la semaine** : `weekly-review`. **Consigner une décision** : `decision`.
+- **Revue de la semaine** : `weekly-review`. **Consigner une décision** : `decision`. **Te faire challenger** sur une idée avant de trancher : `challenge`.
 - **Passer le relais** à une autre conversation : `save-context`. **Fiche d'une personne** : `person`.
 - **Rédiger** un mail ou un post dans ta voix : `draft`. **Enlever l'effet IA** d'un texte : `de-ai-ify`. **Faire un deck** à ta charte : `slides`.
 

@@ -50,6 +50,7 @@ Ouvre ton dossier de notes dans l'outil (le dossier qui contient ton `AGENTS.md`
 | Noter une idée vite | `/unkillable:capture` | `$capture` | `/capture` |
 | Ranger l'inbox | `/unkillable:inbox` | `$inbox` | `/inbox` |
 | Brancher un nouvel outil (CRM, mail…) | `/unkillable:connect` | `$connect` | `/connect` |
+| Te faire challenger avant de trancher | `/unkillable:challenge` | `$challenge` | `/challenge` |
 
 Tu peux aussi le dire avec tes mots : « on reprend », « on clôture », « vide mon inbox », « j'ai connecté Attio ».
 

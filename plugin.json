@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "unkillable",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Daily rituals for your second brain: start and end of session, inbox, decisions, memory and writing. By Unkillable Companies.",
   "author": { "name": "Unkillable Companies", "url": "https://github.com/go-silex" },
   "homepage": "https://github.com/go-silex/unkillable-skills",
