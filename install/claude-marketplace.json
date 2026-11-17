@@ -1,0 +1,21 @@
+{
+  "name": "unkillable-companies",
+  "owner": {
+    "name": "Unkillable Companies",
+    "url": "https://github.com/go-silex"
+  },
+  "metadata": {
+    "description": "Plugins by Unkillable Companies. Install without Git: Claude Code downloads the plugin as a zip from GitHub."
+  },
+  "plugins": [
+    {
+      "name": "unkillable",
+      "source": {
+        "source": "archive",
+        "url": "https://github.com/go-silex/unkillable-skills/archive/refs/heads/main.zip"
+      },
+      "description": "Daily rituals for your second brain: start and end of session, inbox, decisions, memory and writing.",
+      "category": "productivity"
+    }
+  ]
+}

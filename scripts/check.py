@@ -15,6 +15,7 @@ data = {}
 for label, path in list(manifests.items()) + [
     (".claude-plugin/marketplace.json", root / ".claude-plugin/marketplace.json"),
     (".agents/plugins/marketplace.json", root / ".agents/plugins/marketplace.json"),
+    ("install/claude-marketplace.json", root / "install/claude-marketplace.json"),
 ]:
     try:
         data[label] = json.loads(path.read_text())
@@ -28,6 +29,12 @@ cm = data.get(".claude-plugin/marketplace.json", {}).get("plugins", [{}])[0]
 names.add(cm.get("name"))
 for label, d in ((".claude-plugin/plugin.json", data.get(".claude-plugin/plugin.json", {})), (".claude-plugin/marketplace.json", cm)):
     if "version" in d: errors.append(f"{label}: remove 'version' so Claude Code tracks commits")
+# Git-free route: a URL marketplace whose plugin is the GitHub zip of main.
+zm = data.get("install/claude-marketplace.json", {}).get("plugins", [{}])[0]
+names.add(zm.get("name"))
+if "version" in zm: errors.append("install/claude-marketplace.json: remove 'version'")
+if zm.get("source", {}).get("url") != "https://github.com/go-silex/unkillable-skills/archive/refs/heads/main.zip":
+    errors.append("install/claude-marketplace.json: source must be the archive of main")
 names.add(data.get(".agents/plugins/marketplace.json", {}).get("plugins", [{}])[0].get("name"))
 if len(names) != 1: errors.append(f"plugin names differ: {names}")
 if len(versions) != 1: errors.append(f"versions differ: {versions}")

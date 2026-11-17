@@ -30,18 +30,20 @@ Skills talk in your language and follow your brain's own rules (paths, templates
 
 French quick guide: [INSTALL_FR.md](INSTALL_FR.md).
 
-**Before you start: Git.** Installing from GitHub needs Git on your computer; without it the install fails with `Executable not found in $PATH: "git"` or `Failed to clone`. Check with `git --version` in a terminal. Missing on a Mac: run `xcode-select --install` and click Install (it also brings Python, used by `slides`). On Windows: install [Git for Windows](https://git-scm.com/downloads/win) and keep the option that adds Git to the PATH. Then quit and reopen your tool. No way to install Git: see the "Plan B sans Git" in [INSTALL_FR.md](INSTALL_FR.md) (download the ZIP, add the folder as a local marketplace; no auto-update).
+**Nothing to install for Claude Code.** The command below adds the plugin from a zip on GitHub, so no Git is needed. Codex and Antigravity clone the repo: they need Git (`git --version` to check; on a Mac `xcode-select --install`, which also brings Python for `slides`; on Windows [Git for Windows](https://git-scm.com/downloads/win) with the option that adds Git to the PATH).
 
 ### Claude Code
 
 ```
-/plugin marketplace add go-silex/unkillable-skills
+/plugin marketplace add https://raw.githubusercontent.com/go-silex/unkillable-skills/main/install/claude-marketplace.json
 /plugin install unkillable@unkillable-companies
 ```
 
+Already have Git? `/plugin marketplace add go-silex/unkillable-skills` works too; keep only one of the two.
+
 Then turn on updates once: `/plugin` > **Marketplaces** > `unkillable-companies` > **Enable auto-update**. New skills then arrive on their own. Type `/unkillable:` to see the skills (for example `/unkillable:done`). Update by hand any time with `/plugin marketplace update unkillable-companies`.
 
-For a notes folder you hand over, you can also declare the plugin in the folder's `.claude/settings.json`: Claude Code offers it when the folder is trusted.
+For a notes folder you hand over, you can also declare the plugin in the folder's `.claude/settings.json`: Claude Code offers it when the folder is trusted. This route clones the repo, so it needs Git.
 
 ```json
 {
