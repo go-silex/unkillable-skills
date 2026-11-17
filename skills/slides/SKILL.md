@@ -93,7 +93,7 @@ Never ask about style: it comes from the kit.
    - One accent per slide at most.
    - Facts, numbers and names come from the brain or the user. A missing figure is a visible `[to fill]`, never invented. Prices only from the brain's source of truth for offers.
    - Text is written then checked with the `de-ai-ify` rules. No em dash.
-4. Run `python3 <skill>/scripts/embed.py --check <deck>` and fix every warning.
+4. Run `python3 <skill>/scripts/embed.py --check <deck>` and fix every warning. On Windows the command may be `python` or `py`. No Python at all: check the deck by reading it (every image path exists, no placeholder `{{...}}` left), then tell the user once how to get it: on a Mac, `xcode-select --install` in the Terminal (it also installs Git); on Windows, Python from python.org. Never block the deck on it.
 
 ## Phase 3: check before saying done
 

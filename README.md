@@ -30,6 +30,8 @@ Skills talk in your language and follow your brain's own rules (paths, templates
 
 French quick guide: [INSTALL_FR.md](INSTALL_FR.md).
 
+**Before you start: Git.** Installing from GitHub needs Git on your computer; without it the install fails with `Executable not found in $PATH: "git"` or `Failed to clone`. Check with `git --version` in a terminal. Missing on a Mac: run `xcode-select --install` and click Install (it also brings Python, used by `slides`). On Windows: install [Git for Windows](https://git-scm.com/downloads/win) and keep the option that adds Git to the PATH. Then quit and reopen your tool. No way to install Git: see the "Plan B sans Git" in [INSTALL_FR.md](INSTALL_FR.md) (download the ZIP, add the folder as a local marketplace; no auto-update).
+
 ### Claude Code
 
 ```
